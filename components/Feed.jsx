@@ -4,11 +4,17 @@ import { useState, useEffect } from "react";
 import PromptCard from "./PromptCard";
 
 const PromptCardList = ({ data, handleTagClick }) => {
-  <div className="mt-16 prompt_layout">
-    {data.map((post, index) => (
-      <PromptCard key={post._id} post={post} handleTagClick={handleTagClick} />
-    ))}
-  </div>;
+  return (
+    <div className="mt-16 prompt_layout">
+      {data.map((post, index) => (
+        <PromptCard
+          key={post._id}
+          post={post}
+          handleTagClick={handleTagClick}
+        />
+      ))}
+    </div>
+  );
 };
 
 const Feed = () => {
@@ -20,7 +26,6 @@ const Feed = () => {
     const fetchPosts = async () => {
       const resp = await fetch("/api/prompt");
       const data = await resp.json();
-
       setPosts(data);
     };
     fetchPosts();
