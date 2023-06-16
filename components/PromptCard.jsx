@@ -13,8 +13,8 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
     setCopied(post.prompt);
     navigator.clipboard.writeText(post.prompt);
     setTimeout(() => {
-      setCopied(""), 3000;
-    });
+      setCopied("");
+    }, 3000);
   };
 
   return (
