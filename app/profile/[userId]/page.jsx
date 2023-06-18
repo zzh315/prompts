@@ -42,7 +42,7 @@ const UserProfile = ({ params }) => {
 
   return (
     <Profile
-      name={`${username}'s` || "Unkown User"}
+      name={username ? `${username}'s` : "Loading"}
       desc="View and edit your profile info here"
       data={posts}
     />
