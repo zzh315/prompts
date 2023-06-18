@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
+
 const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
   const router = useRouter();
   const pathName = usePathname();
@@ -19,10 +20,21 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
     }, 3000);
   };
 
+  const handleClickUser = () => {
+    if (session?.user.id === post.creator._id) {
+      router.push("/profile");
+    } else {
+      router.push(`/profile/${post.creator._id}`);
+    }
+  };
+
   return (
     <div className="prompt_card">
       <div className="flex justify-between items-start gap-5">
-        <div className="flex-1 flex justify-start items-center gap-3 cursor-pointer">
+        <div
+          className="flex-1 flex justify-start items-center gap-3 cursor-pointer"
+          onClick={handleClickUser}
+        >
           <Image
             src={post.creator.image}
             alt="use_image"

@@ -21,11 +21,6 @@ const MyProfile = () => {
         await fetch(`/api/prompt/${post._id.toString()}`, { method: "DELETE" });
         const filteredPosts = posts.filter((p) => post._id !== p._id);
 
-        console.log(
-          "🚀 ~ file: page.jsx:23 ~ handleDelete ~ filteredPosts:",
-          filteredPosts
-        );
-
         setPosts(filteredPosts);
       } catch (error) {
         console.log(error);
@@ -40,6 +35,7 @@ const MyProfile = () => {
       const data = await response.json();
       if (session?.user.id) setPosts(data);
     };
+
     fetchPosts();
   }, [session?.user.id]);
 
