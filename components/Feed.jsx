@@ -26,10 +26,7 @@ const Feed = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       const resp = await fetch("/api/prompt", {
-        method: "GET",
-        headers: {
-          "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
-        },
+        cache: "no-store",
       });
       const data = await resp.json();
       setPosts(data);
@@ -60,7 +57,7 @@ const Feed = () => {
 
   const handleTagClick = (tag) => {
     setSearchText(tag);
-    setFilteredPosts(filterPosts(tag));
+    setFilteredPosts(filterPosts(tag.toLowerCase()));
   };
 
   return (

@@ -15,7 +15,7 @@ const Home = () => {
       </p>
       <Feed />
 
-      <div className="flex justify-center mt-20">
+      <div className="flex justify-center my-20">
         <a
           href="https://github.com/zzh315/prompts"
           target="_blank"
