@@ -3,13 +3,15 @@ import Prompt from "@models/prompt";
 import { revalidatePath } from "next/cache";
 import User from "@models/user";
 
-export const GET = async (req, res) => {
+export const GET = async (request, res) => {
   try {
     await connectToDB();
 
-    const prompts = await Prompt.find({}).populate("creator");
-    revalidatePath("/api/prompt");
+    const prompts = await Prompt.find().populate({ path: "creator" });
+
     const response = new Response(JSON.stringify(prompts), { status: 200 });
+
+    // Add a unique identifier to the URL to force a cache-busting reload
     const url = new URL(request.url);
     url.searchParams.set("t", Date.now());
     response.headers.set(
