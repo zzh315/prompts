@@ -1,4 +1,5 @@
 import Feed from "@components/Feed";
+import Image from "next/image";
 
 const Home = () => {
   return (
@@ -13,6 +14,17 @@ const Home = () => {
         and share creative prompts
       </p>
       <Feed />
+
+      <div className="flex justify-center mt-20">
+        <a href="https://github.com/zzh315/prompts" target="_blank">
+          <Image
+            src="/assets/images/github-mark.svg"
+            alt="OnlyPrompts Logo"
+            width={30}
+            height={30}
+          />
+        </a>
+      </div>
     </section>
   );
 };
