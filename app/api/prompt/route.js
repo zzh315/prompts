@@ -1,9 +1,9 @@
 import { connectToDB } from "@utils/database";
 import Prompt from "@models/prompt";
-import { revalidatePath } from "next/cache";
+
 import User from "@models/user";
 
-export const GET = async (request, res) => {
+export const GET = async (request) => {
   try {
     await connectToDB();
 
