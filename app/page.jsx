@@ -16,10 +16,14 @@ const Home = () => {
       <Feed />
 
       <div className="flex justify-center mt-20">
-        <a href="https://github.com/zzh315/prompts" target="_blank">
+        <a
+          href="https://github.com/zzh315/prompts"
+          target="_blank"
+          title="zzh315Github"
+        >
           <Image
             src="/assets/images/github-mark.svg"
-            alt="OnlyPrompts Logo"
+            alt="github"
             width={30}
             height={30}
           />
