@@ -3,10 +3,6 @@ import Prompt from "@models/prompt";
 
 export const GET = async (req, res) => {
   try {
-    res.setHeader(
-      "Cache-Control",
-      "no-cache, no-store, max-age=0, must-revalidate"
-    );
     await connectToDB();
 
     const prompts = await Prompt.find({}).populate("creator");
